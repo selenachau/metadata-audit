@@ -1,3 +1,6 @@
+# windows recursively check multiple directories for wav files over 40MB (parse out transfer tones)
+if %filesize% gtr %40000000% (exiftool.exe -r -csv . -ext wav > allwav.csv)
+
 #single file
 exiftool -csv file.wav > exifcsvinfo.csv
 
