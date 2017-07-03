@@ -1,0 +1,4 @@
+#single file
+exiftool -csv file.wav > exifcsvinfo.csv
+
+# directory
