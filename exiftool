@@ -1,4 +1,17 @@
 #single file
 exiftool -csv file.wav > exifcsvinfo.csv
 
-# directory
+# export metadata to csv of all files in directory that exiftool recognizes
+exiftool -csv dir > exifcsvdir.csv
+
+# export metadata of info in directory for just wav files
+exiftool -csv dir -ext wav > exifcsvdir.csv
+
+# recursive, multiple directories
+exiftool -r -csv . -ext wav > allwav.csv
+
+# on mac, recursively check multiple directories for wav files over 40MB (parse out transfer tones)
+exiftool -if '$filesize# > 40000000' -r -csv . -ext wav > allwav.csv
+
+
+# https://gist.github.com/rjames86/33b9af12548adf091a26
